@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ragnos - Artista</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="logoragnos.png" alt="Logo de Ragnos" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#musica">Música</a></li>
+          <!-- <li><a href="#galeria">Galería</a></li> -->
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div class="hero-content">
+          <img src="logoragnos.png" alt="Logo de Ragnos" />
+          <p>Artista apasionado creando experiencias únicas.</p>
+          <a
+            href="https://open.spotify.com/intl-es/artist/4dCMc5FBy7N16MywhYs2Fd?si=UdCjFQM9R3qGIdMYJekPXA"
+            class="button"
+            >Descubre su Música</a
+          >
+        </div>
+      </section>
+
+      <section id="musica" class="music">
+        <h2>Música</h2>
+        <p>Explora las últimas canciones y álbumes de Ragnos.</p>
+        <div class="music-buttons"></div>
+          <button onclick="window.open('https://open.spotify.com/intl-es/track/6tmrWTGONh4aTu6WX0NZof?si=e988e06aa80f40eb', '_blank')">
+            Ojos de café
+          </button>
+        </div>
+      </section>
+
+      <!-- <section id="galeria" class="gallery">
+        <h2>Galería</h2>
+        <div class="gallery-grid">
+          <img src="imagen1.jpg" alt="Imagen 1" />
+          <img src="imagen2.jpg" alt="Imagen 2" />
+          <img src="imagen3.jpg" alt="Imagen 3" />
+        </div>
+      </section> -->
+
+      <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <p>¿Quieres colaborar o saber más? ¡Ponte en contacto!</p>
+        Envía un correo a: cgarciagl@gmail.com
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Ragnos. Todos los derechos reservados.</p>
+    </footer>
+
+<script>
+  const numParticles = 50; // Número de partículas
+    function createParticle() {
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+
+        // Posición inicial aleatoria
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.left = `${Math.random() * 100}vw`;
+
+        // Movimiento aleatorio
+        particle.style.setProperty("--x", `${(Math.random() - 0.5) * 200}px`);
+        particle.style.setProperty("--y", `${(Math.random() - 0.5) * 200}px`);
+
+        // Tamaño aleatorio
+        const size = Math.random() * 10 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+
+        document.body.appendChild(particle);
+
+        // Eliminar y recrear después de la animación
+        setTimeout(() => {
+            particle.remove();
+            createParticle();
+        }, 10000);
+    }
+
+    // Crear las partículas iniciales
+    for (let i = 0; i < numParticles; i++) {
+        createParticle();
+    }
+</script>
+
+<style>
+    body {
+ 
+
+        /* overflow: hidden;
+        position: relative; */
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .particle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background-color: orangered;
+        /* Azul brillante */
+        border-radius: 50%;
+        box-shadow: 0 0 8px yellow;
+        animation: moveParticle 10s linear infinite;
+    }
+
+    @keyframes moveParticle {
+        0% {
+            transform: translate(0, 0);
+            opacity: 0.5;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(var(--x), var(--y));
+            opacity: 0.2;
+        }
+    }
+
+    .login-box .card {
+        z-index: 1;
+    }
+</style>
+  </body>
+</html>
